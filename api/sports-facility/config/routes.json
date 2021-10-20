@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sports-facilities",
+      "handler": "sports-facility.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sports-facilities/count",
+      "handler": "sports-facility.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sports-facilities/:id",
+      "handler": "sports-facility.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/sports-facilities",
+      "handler": "sports-facility.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sports-facilities/:id",
+      "handler": "sports-facility.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sports-facilities/:id",
+      "handler": "sports-facility.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

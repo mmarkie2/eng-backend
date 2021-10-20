@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sports_facilities",
+  "info": {
+    "name": "SportsFacility"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "street": {
+      "model": "street"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 45
+    },
+    "number": {
+      "type": "string",
+      "maxLength": 5
+    },
+    "sportsFacilityPhotos": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

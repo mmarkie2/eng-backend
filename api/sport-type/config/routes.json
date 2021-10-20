@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sport-types",
+      "handler": "sport-type.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sport-types/count",
+      "handler": "sport-type.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sport-types/:id",
+      "handler": "sport-type.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/sport-types",
+      "handler": "sport-type.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sport-types/:id",
+      "handler": "sport-type.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sport-types/:id",
+      "handler": "sport-type.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
