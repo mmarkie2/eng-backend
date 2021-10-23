@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/pick-up-games",
+      "handler": "pick-up-game.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pick-up-games/count",
+      "handler": "pick-up-game.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pick-up-games/:id",
+      "handler": "pick-up-game.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/pick-up-games",
+      "handler": "pick-up-game.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/pick-up-games/:id",
+      "handler": "pick-up-game.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/pick-up-games/:id",
+      "handler": "pick-up-game.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

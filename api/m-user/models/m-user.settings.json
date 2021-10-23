@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_users",
+  "info": {
+    "name": "MUser"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nick": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "maxLength": 20
+    }
+  }
+}

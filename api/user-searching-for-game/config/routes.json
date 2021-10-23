@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/user-searching-for-games",
+      "handler": "user-searching-for-game.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/user-searching-for-games/count",
+      "handler": "user-searching-for-game.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/user-searching-for-games/:id",
+      "handler": "user-searching-for-game.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/user-searching-for-games",
+      "handler": "user-searching-for-game.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/user-searching-for-games/:id",
+      "handler": "user-searching-for-game.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/user-searching-for-games/:id",
+      "handler": "user-searching-for-game.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

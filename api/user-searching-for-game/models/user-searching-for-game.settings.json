@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_searching_for_games",
+  "info": {
+    "name": "UserSearchingForGame",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "m_user": {
+      "model": "m-user"
+    },
+    "sports_facilities": {
+      "collection": "sports-facility"
+    },
+    "sport_type": {
+      "model": "sport-type"
+    }
+  }
+}

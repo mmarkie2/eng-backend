@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pick_up_games",
+  "info": {
+    "name": "PickUpGame",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "sports_facility": {
+      "model": "sports-facility"
+    },
+    "sport_type": {
+      "model": "sport-type"
+    },
+    "owner": {
+      "model": "m-user"
+    }
+  }
+}

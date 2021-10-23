@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_pick_up_games",
+  "info": {
+    "name": "UserPickUpGame",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "m_user": {
+      "model": "m-user"
+    },
+    "pick_up_game": {
+      "model": "pick-up-game"
+    },
+    "inviteDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "participates": {
+      "type": "boolean"
+    }
+  }
+}

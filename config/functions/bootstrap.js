@@ -10,4 +10,9 @@
  * See more details here: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#bootstrap
  */
 
-module.exports = () => {};
+module.exports =async () => {
+
+  await strapi.services['entries-generator'].generateSimpleData('sport-type',['name']);
+  await strapi.services['entries-generator'].generateSimpleData('country',['name']);
+  await strapi.services['entries-generator'].generateSimpleData('m-user',['nick']);
+};
