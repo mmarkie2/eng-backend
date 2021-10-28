@@ -1,5 +1,5 @@
 'use strict';
-
+const util = require('util')
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
@@ -16,7 +16,7 @@ module.exports = {
    */
 
   async find(ctx) {
-    async function createPickUpGame() {
+    async function getGroupedUsers() {
       let userSearchingForGames = await strapi.services['user-searching-for-game'].find();
       // console.log(userSearchingForGames)
 
@@ -43,36 +43,87 @@ module.exports = {
 //create separate object for userSearchingForGames every sports facility for further groupBy
       let sportTypeIdToUsersSingleFacility = {};
       for (const [key, value] of Object.entries(sportTypeIdToUsers)) {
-      let buf=  value.map((user) => {
+        let buf = value.map((user) => {
           let list = []
-          for (const sportsFacility in user.sports_facilities) {
-            let userCopy = user
+
+          for (const sportsFacility of user.sports_facilities) {
+            let userCopy = JSON.parse(JSON.stringify(user))
             delete userCopy.sports_facilities
             userCopy['sports_facility'] = sportsFacility
-            list.push(user)
+            list.push(userCopy)
           }
+          // console.log("list")
+          // console.log(list)
           return list
         })
 
-        sportTypeIdToUsersSingleFacility[key]=   buf.reduce((rv,x)=>
-        {
-return rv.concat(x)
-        },[])
+        sportTypeIdToUsersSingleFacility[key] = buf.reduce((rv, x) => {
+          return rv.concat(x)
+        }, [])
       }
-      console.log(sportTypeIdToUsersSingleFacility);
+
+      console.log(util.inspect(sportTypeIdToUsersSingleFacility, {showHidden: false, depth: null, colors: true}))
+
+      let facilityIdToSportTypeIdToUsersSingleFacility = {}
+      for (const [key, value] of Object.entries(sportTypeIdToUsersSingleFacility)) {
+        let bufGroupsByFacility = groupBy(value, ['sports_facility', 'id']);
+        facilityIdToSportTypeIdToUsersSingleFacility[key] = bufGroupsByFacility
+      }
+
+      console.log(facilityIdToSportTypeIdToUsersSingleFacility);
+      console.log(util.inspect(facilityIdToSportTypeIdToUsersSingleFacility, {
+        showHidden: false,
+        depth: null,
+        colors: true
+      }))
+
+      return facilityIdToSportTypeIdToUsersSingleFacility;
+    }
 
 
-      //  let groupsBySportAndFacility={}
-      //  for (const [key, value] of Object.entries(groupsBySport)) {
-      // let  bufGroupsByFacility= groupBy(userSearchingForGames, ['sports_facility','id']);
-      //    groupsBySportAndFacility[key]=bufGroupsByFacility
-      //  }
-      //
-      //  console.log(groupsBySportAndFacility);
+    async function generatePickUpGamesForMostPopulated(groupedUsers) {
+
+      console.log(groupedUsers)
+      for (const [sportTypeId, groupsByFacility] of Object.entries(groupedUsers)) {
+        let groupsByFacilitySorted = [...Object.entries(groupsByFacility)].sort((a, b) => {
+            return b[1].length - a[1].length;
+          }
+        )
+
+
+        // console.log("groupsByFacilitySorted")
+        // console.log(groupsByFacilitySorted)
+        const users = groupsByFacilitySorted[0][1]
+
+        //checks if on most popular facility there are at lest 2 users
+        if (users.length > 1) {
+          console.log(users)
+          await generatePickUpGame(users)
+        }
+
+      }
+    }
+
+    await generatePickUpGamesForMostPopulated(await getGroupedUsers())
+
+
+    async function generatePickUpGame(users) {
+      let name = new Date().toString().substr(0,18);
+
+      let entity = await strapi.services['pick-up-game'].create({
+        "name": name,
+        "sports_facility": users[0].sports_facility,
+        "sport_type": users[0].sport_type,
+        "owner": users[0]
+
+      });
+      for (let user of users) {
+
+      }
+
 
     }
 
-    await createPickUpGame();
     let entities;
     if (ctx.query._q) {
 
