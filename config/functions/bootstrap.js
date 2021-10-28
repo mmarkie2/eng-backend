@@ -12,7 +12,5 @@
 
 module.exports =async () => {
 
-  await strapi.services['entries-generator'].generateSimpleData('sport-type',['name']);
-  await strapi.services['entries-generator'].generateSimpleData('country',['name']);
-  await strapi.services['entries-generator'].generateSimpleData('m-user',['nick']);
+
 };
