@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "m_users",
+  "collectionName": "teams",
   "info": {
-    "name": "MUser"
+    "name": "Team"
   },
   "options": {
     "increments": true,
@@ -11,18 +11,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nick": {
+    "name": {
       "type": "string",
-      "unique": true,
       "required": true,
       "maxLength": 20
     },
-    "teams": {
-      "via": "owner",
-      "collection": "team"
+    "owner": {
+      "model": "m-user",
+      "via": "teams"
     },
-    "user_teams": {
-      "via": "m_user",
+    "team_users": {
+      "via": "team",
       "collection": "user-team"
     }
   }

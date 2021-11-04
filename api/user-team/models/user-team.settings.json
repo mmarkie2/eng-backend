@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "user_pick_up_games",
+  "collectionName": "user_teams",
   "info": {
-    "name": "UserPickUpGame",
-    "description": ""
+    "name": "UserTeam"
   },
   "options": {
     "increments": true,
@@ -12,19 +11,23 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "m_user": {
-      "model": "m-user"
+    "startDate": {
+      "type": "datetime"
     },
-    "pick_up_game": {
-      "model": "pick-up-game",
-      "via": "user_pick_up_games"
+    "endDate": {
+      "type": "datetime"
     },
     "inviteDate": {
       "type": "datetime",
       "required": true
     },
-    "participates": {
-      "type": "boolean"
+    "m_user": {
+      "model": "m-user",
+      "via": "user_teams"
+    },
+    "team": {
+      "model": "team",
+      "via": "team_users"
     }
   }
 }

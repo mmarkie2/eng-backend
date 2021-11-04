@@ -118,7 +118,12 @@ module.exports = {
 
       });
       for (let user of users) {
-
+        let userPickUpGame = await strapi.services['user-pick-up-game'].create({
+          "m_user": user,
+          "pick_up_game":entity,
+          "inviteDate": new Date().getTime(),
+          "participates": false,
+        });
       }
 
 

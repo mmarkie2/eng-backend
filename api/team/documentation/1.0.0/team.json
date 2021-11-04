@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/user-searching-for-games": {
+    "/teams": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Team"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Team"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Team"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Team"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewUser-searching-for-game"
+                "$ref": "#/components/schemas/NewTeam"
               }
             }
           }
         }
       }
     },
-    "/user-searching-for-games/count": {
+    "/teams/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Team"
         ],
         "parameters": []
       }
     },
-    "/user-searching-for-games/{id}": {
+    "/teams/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Team"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Team"
         ],
         "parameters": [
           {
@@ -392,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Team"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Team"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewUser-searching-for-game"
+                "$ref": "#/components/schemas/NewTeam"
               }
             }
           }
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Team"
         ],
         "parameters": [
           {
@@ -527,15 +514,20 @@
   },
   "components": {
     "schemas": {
-      "User-searching-for-game": {
+      "Team": {
         "required": [
-          "id"
+          "id",
+          "name"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "m_user": {
+          "name": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "owner": {
             "required": [
               "id",
               "nick"
@@ -570,37 +562,31 @@
               }
             }
           },
-          "sports_facilities": {
+          "team_users": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "name"
+                "inviteDate"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "street": {
+                "startDate": {
                   "type": "string"
                 },
-                "name": {
+                "endDate": {
                   "type": "string"
                 },
-                "number": {
+                "inviteDate": {
                   "type": "string"
                 },
-                "sportsFacilityPhotos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "m_user": {
+                  "type": "string"
                 },
-                "sport_types": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "team": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -614,54 +600,29 @@
               }
             }
           },
-          "sport_type": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "sports_facilities": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewUser-searching-for-game": {
+      "NewTeam": {
+        "required": [
+          "name"
+        ],
         "properties": {
-          "m_user": {
+          "name": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "owner": {
             "type": "string"
           },
-          "sports_facilities": {
+          "team_users": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "sport_type": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -677,5 +638,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Team"
+    }
+  ]
 }

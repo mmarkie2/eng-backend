@@ -548,6 +548,18 @@
               "nick": {
                 "type": "string"
               },
+              "teams": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "user_teams": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -578,6 +590,12 @@
               },
               "owner": {
                 "type": "string"
+              },
+              "user_pick_up_games": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"

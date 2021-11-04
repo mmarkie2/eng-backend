@@ -24,6 +24,10 @@
     },
     "owner": {
       "model": "m-user"
+    },
+    "user_pick_up_games": {
+      "via": "pick_up_game",
+      "collection": "user-pick-up-game"
     }
   }
 }

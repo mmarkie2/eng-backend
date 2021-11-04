@@ -621,6 +621,18 @@
               "nick": {
                 "type": "string"
               },
+              "teams": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "user_teams": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -629,6 +641,41 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "user_pick_up_games": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "inviteDate"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "m_user": {
+                  "type": "string"
+                },
+                "pick_up_game": {
+                  "type": "string"
+                },
+                "inviteDate": {
+                  "type": "string"
+                },
+                "participates": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -652,6 +699,12 @@
           },
           "owner": {
             "type": "string"
+          },
+          "user_pick_up_games": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
