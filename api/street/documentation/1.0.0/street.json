@@ -534,7 +534,9 @@
           },
           "city": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "province"
             ],
             "properties": {
               "id": {

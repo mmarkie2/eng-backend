@@ -516,7 +516,9 @@
     "schemas": {
       "City": {
         "required": [
-          "id"
+          "id",
+          "name",
+          "province"
         ],
         "properties": {
           "id": {
@@ -528,7 +530,9 @@
           },
           "province": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "country"
             ],
             "properties": {
               "id": {
@@ -558,6 +562,10 @@
         }
       },
       "NewCity": {
+        "required": [
+          "name",
+          "province"
+        ],
         "properties": {
           "name": {
             "type": "string",

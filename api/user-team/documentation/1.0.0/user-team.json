@@ -548,7 +548,39 @@
             "type": "string",
             "format": "date-time"
           },
-          "m_user": {
+          "team": {
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "string"
+              },
+              "team_users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "mUser": {
             "required": [
               "id",
               "nick"
@@ -567,38 +599,6 @@
                 }
               },
               "user_teams": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "team": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "owner": {
-                "type": "string"
-              },
-              "team_users": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -638,10 +638,10 @@
             "type": "string",
             "format": "date-time"
           },
-          "m_user": {
+          "team": {
             "type": "string"
           },
-          "team": {
+          "mUser": {
             "type": "string"
           },
           "published_at": {

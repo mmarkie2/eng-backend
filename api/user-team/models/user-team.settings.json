@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "user_teams",
   "info": {
-    "name": "UserTeam"
+    "name": "UserTeam",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -21,13 +22,13 @@
       "type": "datetime",
       "required": true
     },
-    "m_user": {
-      "model": "m-user",
-      "via": "user_teams"
-    },
     "team": {
       "model": "team",
       "via": "team_users"
+    },
+    "mUser": {
+      "via": "user_teams",
+      "model": "m-user"
     }
   }
 }

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_tournaments",
+  "info": {
+    "name": "TeamTournament"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "team": {
+      "model": "team"
+    },
+    "invite_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "tournament": {
+      "model": "tournament",
+      "via": "team_tournaments"
+    },
+    "participates": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

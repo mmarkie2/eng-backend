@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/m-users": {
+    "/team-tournaments": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Team-tournament"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Team-tournament"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewM-user"
+                "$ref": "#/components/schemas/NewTeam-tournament"
               }
             }
           }
         }
       }
     },
-    "/m-users/count": {
+    "/team-tournaments/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Team-tournament"
         ],
         "parameters": []
       }
     },
-    "/m-users/{id}": {
+    "/team-tournaments/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Team-tournament"
         ],
         "parameters": [
           {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Team-tournament"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewM-user"
+                "$ref": "#/components/schemas/NewTeam-tournament"
               }
             }
           }
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Team-tournament"
         ],
         "parameters": [
           {
@@ -527,91 +527,101 @@
   },
   "components": {
     "schemas": {
-      "M-user": {
+      "Team-tournament": {
         "required": [
           "id",
-          "nick"
+          "invite_date",
+          "participates"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nick": {
+          "team": {
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "string"
+              },
+              "team_users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "invite_date": {
             "type": "string",
-            "maxLength": 20
+            "format": "date-time"
           },
-          "teams": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "owner": {
-                  "type": "string"
-                },
-                "team_users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "tournament": {
+            "required": [
+              "id",
+              "name",
+              "start_date",
+              "end_date"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "organizer": {
+                "type": "string"
+              },
+              "sports_facility": {
+                "type": "string"
+              },
+              "sport_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "start_date": {
+                "type": "string"
+              },
+              "end_date": {
+                "type": "string"
+              },
+              "team_tournaments": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
-          "user_teams": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "inviteDate"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "startDate": {
-                  "type": "string"
-                },
-                "endDate": {
-                  "type": "string"
-                },
-                "inviteDate": {
-                  "type": "string"
-                },
-                "team": {
-                  "type": "string"
-                },
-                "mUser": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
+          "participates": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -619,26 +629,25 @@
           }
         }
       },
-      "NewM-user": {
+      "NewTeam-tournament": {
         "required": [
-          "nick"
+          "invite_date",
+          "participates"
         ],
         "properties": {
-          "nick": {
+          "team": {
+            "type": "string"
+          },
+          "invite_date": {
             "type": "string",
-            "maxLength": 20
+            "format": "date-time"
           },
-          "teams": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "tournament": {
+            "type": "string"
           },
-          "user_teams": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "participates": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

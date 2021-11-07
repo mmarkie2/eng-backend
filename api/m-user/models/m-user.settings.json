@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "m_users",
   "info": {
-    "name": "MUser"
+    "name": "MUser",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -22,8 +23,8 @@
       "collection": "team"
     },
     "user_teams": {
-      "via": "m_user",
-      "collection": "user-team"
+      "collection": "user-team",
+      "via": "mUser"
     }
   }
 }

@@ -582,10 +582,10 @@
                 "inviteDate": {
                   "type": "string"
                 },
-                "m_user": {
+                "team": {
                   "type": "string"
                 },
-                "team": {
+                "mUser": {
                   "type": "string"
                 },
                 "published_at": {

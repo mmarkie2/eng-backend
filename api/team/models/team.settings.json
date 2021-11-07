@@ -17,8 +17,8 @@
       "maxLength": 20
     },
     "owner": {
-      "model": "m-user",
-      "via": "teams"
+      "via": "teams",
+      "model": "m-user"
     },
     "team_users": {
       "via": "team",

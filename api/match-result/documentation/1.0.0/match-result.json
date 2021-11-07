@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/m-users": {
+    "/match-results": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Match-result"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Match-result"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewM-user"
+                "$ref": "#/components/schemas/NewMatch-result"
               }
             }
           }
         }
       }
     },
-    "/m-users/count": {
+    "/match-results/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Match-result"
         ],
         "parameters": []
       }
     },
-    "/m-users/{id}": {
+    "/match-results/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Match-result"
         ],
         "parameters": [
           {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Match-result"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewM-user"
+                "$ref": "#/components/schemas/NewMatch-result"
               }
             }
           }
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "M-user"
+          "Match-result"
         ],
         "parameters": [
           {
@@ -527,91 +527,18 @@
   },
   "components": {
     "schemas": {
-      "M-user": {
+      "Match-result": {
         "required": [
           "id",
-          "nick"
+          "result"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nick": {
+          "result": {
             "type": "string",
             "maxLength": 20
-          },
-          "teams": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "owner": {
-                  "type": "string"
-                },
-                "team_users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "user_teams": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "inviteDate"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "startDate": {
-                  "type": "string"
-                },
-                "endDate": {
-                  "type": "string"
-                },
-                "inviteDate": {
-                  "type": "string"
-                },
-                "team": {
-                  "type": "string"
-                },
-                "mUser": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           },
           "published_at": {
             "type": "string",
@@ -619,26 +546,14 @@
           }
         }
       },
-      "NewM-user": {
+      "NewMatch-result": {
         "required": [
-          "nick"
+          "result"
         ],
         "properties": {
-          "nick": {
+          "result": {
             "type": "string",
             "maxLength": 20
-          },
-          "teams": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "user_teams": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "published_at": {
             "type": "string",

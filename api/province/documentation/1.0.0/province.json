@@ -516,7 +516,9 @@
     "schemas": {
       "Province": {
         "required": [
-          "id"
+          "id",
+          "name",
+          "country"
         ],
         "properties": {
           "id": {
@@ -556,6 +558,10 @@
         }
       },
       "NewProvince": {
+        "required": [
+          "name",
+          "country"
+        ],
         "properties": {
           "name": {
             "type": "string",

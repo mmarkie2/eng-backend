@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matches",
+  "info": {
+    "name": "Match"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime",
+      "required": true,
+      "unique": false
+    },
+    "matchResult": {
+      "model": "match-result"
+    },
+    "teamTournament1": {
+      "model": "team-tournament"
+    },
+    "teamTournament2": {
+      "model": "team-tournament"
+    }
+  }
+}
