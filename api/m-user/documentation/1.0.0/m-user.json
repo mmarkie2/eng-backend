@@ -530,15 +530,12 @@
       "M-user": {
         "required": [
           "id",
-          "nick"
+          "Name",
+          "lastName"
         ],
         "properties": {
           "id": {
             "type": "string"
-          },
-          "nick": {
-            "type": "string",
-            "maxLength": 20
           },
           "teams": {
             "type": "array",
@@ -613,6 +610,69 @@
               }
             }
           },
+          "Name": {
+            "type": "string",
+            "default": "name",
+            "maxLength": 45
+          },
+          "secondName": {
+            "type": "string",
+            "maxLength": 45
+          },
+          "lastName": {
+            "type": "string",
+            "maxLength": 45
+          },
+          "phoneNumber": {
+            "type": "string",
+            "maxLength": 12,
+            "minLength": 12
+          },
+          "usersPermissionsUser": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -621,13 +681,10 @@
       },
       "NewM-user": {
         "required": [
-          "nick"
+          "Name",
+          "lastName"
         ],
         "properties": {
-          "nick": {
-            "type": "string",
-            "maxLength": 20
-          },
           "teams": {
             "type": "array",
             "items": {
@@ -639,6 +696,27 @@
             "items": {
               "type": "string"
             }
+          },
+          "Name": {
+            "type": "string",
+            "default": "name",
+            "maxLength": 45
+          },
+          "secondName": {
+            "type": "string",
+            "maxLength": 45
+          },
+          "lastName": {
+            "type": "string",
+            "maxLength": 45
+          },
+          "phoneNumber": {
+            "type": "string",
+            "maxLength": 12,
+            "minLength": 12
+          },
+          "usersPermissionsUser": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

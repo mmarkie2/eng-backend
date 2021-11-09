@@ -528,13 +528,11 @@
           "organizer": {
             "required": [
               "id",
-              "nick"
+              "Name",
+              "lastName"
             ],
             "properties": {
               "id": {
-                "type": "string"
-              },
-              "nick": {
                 "type": "string"
               },
               "teams": {
@@ -548,6 +546,21 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "Name": {
+                "type": "string"
+              },
+              "secondName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "usersPermissionsUser": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"

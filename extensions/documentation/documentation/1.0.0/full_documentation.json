@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/07/2021 6:47:09 PM"
+    "x-generation-date": "11/09/2021 9:41:24 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -10682,15 +10682,12 @@
       "M-user": {
         "required": [
           "id",
-          "nick"
+          "Name",
+          "lastName"
         ],
         "properties": {
           "id": {
             "type": "string"
-          },
-          "nick": {
-            "type": "string",
-            "maxLength": 20
           },
           "teams": {
             "type": "array",
@@ -10765,6 +10762,69 @@
               }
             }
           },
+          "Name": {
+            "type": "string",
+            "default": "name",
+            "maxLength": 45
+          },
+          "secondName": {
+            "type": "string",
+            "maxLength": 45
+          },
+          "lastName": {
+            "type": "string",
+            "maxLength": 45
+          },
+          "phoneNumber": {
+            "type": "string",
+            "maxLength": 12,
+            "minLength": 12
+          },
+          "usersPermissionsUser": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -10773,13 +10833,10 @@
       },
       "NewM-user": {
         "required": [
-          "nick"
+          "Name",
+          "lastName"
         ],
         "properties": {
-          "nick": {
-            "type": "string",
-            "maxLength": 20
-          },
           "teams": {
             "type": "array",
             "items": {
@@ -10791,6 +10848,27 @@
             "items": {
               "type": "string"
             }
+          },
+          "Name": {
+            "type": "string",
+            "default": "name",
+            "maxLength": 45
+          },
+          "secondName": {
+            "type": "string",
+            "maxLength": 45
+          },
+          "lastName": {
+            "type": "string",
+            "maxLength": 45
+          },
+          "phoneNumber": {
+            "type": "string",
+            "maxLength": 12,
+            "minLength": 12
+          },
+          "usersPermissionsUser": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -11067,13 +11145,11 @@
           "owner": {
             "required": [
               "id",
-              "nick"
+              "Name",
+              "lastName"
             ],
             "properties": {
               "id": {
-                "type": "string"
-              },
-              "nick": {
                 "type": "string"
               },
               "teams": {
@@ -11087,6 +11163,21 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "Name": {
+                "type": "string"
+              },
+              "secondName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "usersPermissionsUser": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -11750,13 +11841,11 @@
           "owner": {
             "required": [
               "id",
-              "nick"
+              "Name",
+              "lastName"
             ],
             "properties": {
               "id": {
-                "type": "string"
-              },
-              "nick": {
                 "type": "string"
               },
               "teams": {
@@ -11770,6 +11859,21 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "Name": {
+                "type": "string"
+              },
+              "secondName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "usersPermissionsUser": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -11870,13 +11974,11 @@
           "organizer": {
             "required": [
               "id",
-              "nick"
+              "Name",
+              "lastName"
             ],
             "properties": {
               "id": {
-                "type": "string"
-              },
-              "nick": {
                 "type": "string"
               },
               "teams": {
@@ -11890,6 +11992,21 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "Name": {
+                "type": "string"
+              },
+              "secondName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "usersPermissionsUser": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -12084,13 +12201,11 @@
           "m_user": {
             "required": [
               "id",
-              "nick"
+              "Name",
+              "lastName"
             ],
             "properties": {
               "id": {
-                "type": "string"
-              },
-              "nick": {
                 "type": "string"
               },
               "teams": {
@@ -12104,6 +12219,21 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "Name": {
+                "type": "string"
+              },
+              "secondName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "usersPermissionsUser": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -12207,13 +12337,11 @@
           "m_user": {
             "required": [
               "id",
-              "nick"
+              "Name",
+              "lastName"
             ],
             "properties": {
               "id": {
-                "type": "string"
-              },
-              "nick": {
                 "type": "string"
               },
               "teams": {
@@ -12227,6 +12355,21 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "Name": {
+                "type": "string"
+              },
+              "secondName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "usersPermissionsUser": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -12400,13 +12543,11 @@
           "mUser": {
             "required": [
               "id",
-              "nick"
+              "Name",
+              "lastName"
             ],
             "properties": {
               "id": {
-                "type": "string"
-              },
-              "nick": {
                 "type": "string"
               },
               "teams": {
@@ -12420,6 +12561,21 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "Name": {
+                "type": "string"
+              },
+              "secondName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "usersPermissionsUser": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
