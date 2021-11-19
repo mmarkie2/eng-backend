@@ -529,9 +529,7 @@
     "schemas": {
       "M-user": {
         "required": [
-          "id",
-          "Name",
-          "lastName"
+          "id"
         ],
         "properties": {
           "id": {
@@ -610,9 +608,8 @@
               }
             }
           },
-          "Name": {
+          "firstName": {
             "type": "string",
-            "default": "name",
             "maxLength": 45
           },
           "secondName": {
@@ -673,6 +670,44 @@
               }
             }
           },
+          "user_chats": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "inviteDate"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "inviteDate": {
+                  "type": "string"
+                },
+                "startDate": {
+                  "type": "string"
+                },
+                "stopDate": {
+                  "type": "string"
+                },
+                "mUser": {
+                  "type": "string"
+                },
+                "chat": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -680,10 +715,6 @@
         }
       },
       "NewM-user": {
-        "required": [
-          "Name",
-          "lastName"
-        ],
         "properties": {
           "teams": {
             "type": "array",
@@ -697,9 +728,8 @@
               "type": "string"
             }
           },
-          "Name": {
+          "firstName": {
             "type": "string",
-            "default": "name",
             "maxLength": 45
           },
           "secondName": {
@@ -717,6 +747,12 @@
           },
           "usersPermissionsUser": {
             "type": "string"
+          },
+          "user_chats": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

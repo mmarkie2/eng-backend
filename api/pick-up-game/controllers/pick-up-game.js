@@ -93,12 +93,15 @@ module.exports = {
 
         // console.log("groupsByFacilitySorted")
         // console.log(groupsByFacilitySorted)
+
+        //most populated group
         const users = groupsByFacilitySorted[0][1]
 
         //checks if on most popular facility there are at lest 2 users
         if (users.length > 1) {
-          console.log(users)
+
           await generatePickUpGame(users)
+          await deleteUserSearchingForGames(users)
         }
 
       }
@@ -128,6 +131,19 @@ module.exports = {
 
 
     }
+    async function deleteUserSearchingForGames(users) {
+
+      for (let user of users) {
+
+
+        const { id } = user;
+
+        const entity = await strapi.services['user-searching-for-game'].delete({ id });
+
+      }
+
+
+    }
 
     let entities;
     if (ctx.query._q) {
@@ -139,4 +155,53 @@ module.exports = {
 
     return entities.map(entity => sanitizeEntity(entity, {model: strapi.models['pick-up-game']}));
   },
+
+
+  async create(ctx) {
+    console.log( ctx.state.user.id)
+    let entity;
+    if (ctx.is('multipart')) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services["pick-up-game"].create(data, { files });
+    } else {
+      let requestBody=ctx.request.body;
+      requestBody.owner={"id":ctx.state.user.id};
+      entity = await strapi.services["pick-up-game"].create(requestBody);
+    }
+    return sanitizeEntity(entity, { model: strapi.models["pick-up-game"] });
+  },
+  async update(ctx) {
+    const { id } = ctx.params;
+
+    let entity;
+    if (ctx.is('multipart')) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services["pick-up-game"].update({ id }, data, {
+        files,
+      });
+    } else {
+      entity = await strapi.services["pick-up-game"].update({ id }, ctx.request.body);
+    }
+
+    return sanitizeEntity(entity, { model: strapi.models["pick-up-game"] });
+  },
+  async delete(ctx) {
+
+
+    const [result] = await strapi.services["pick-up-game"].find({
+      id: ctx.params.id,
+      'owner.id': ctx.state.user.id,
+    })
+
+    if (!result) {
+      return ctx.unauthorized(`You can't update this entry`);
+    }
+
+
+    const { id } = ctx.params;
+
+    const entity = await strapi.services["pick-up-game"].delete({ id });
+    return sanitizeEntity(entity, { model: strapi.models["pick-up-game"] });
+  },
+
 };

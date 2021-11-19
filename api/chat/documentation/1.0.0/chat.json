@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/user-searching-for-games": {
+    "/chats": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Chat"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Chat"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Chat"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Chat"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewUser-searching-for-game"
+                "$ref": "#/components/schemas/NewChat"
               }
             }
           }
         }
       }
     },
-    "/user-searching-for-games/count": {
+    "/chats/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Chat"
         ],
         "parameters": []
       }
     },
-    "/user-searching-for-games/{id}": {
+    "/chats/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Chat"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Chat"
         ],
         "parameters": [
           {
@@ -392,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Chat"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Chat"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewUser-searching-for-game"
+                "$ref": "#/components/schemas/NewChat"
               }
             }
           }
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "User-searching-for-game"
+          "Chat"
         ],
         "parameters": [
           {
@@ -527,97 +514,44 @@
   },
   "components": {
     "schemas": {
-      "User-searching-for-game": {
+      "Chat": {
         "required": [
-          "id"
+          "id",
+          "name"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "m_user": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "teams": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "user_teams": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "secondName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "phoneNumber": {
-                "type": "string"
-              },
-              "usersPermissionsUser": {
-                "type": "string"
-              },
-              "user_chats": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "name": {
+            "type": "string",
+            "maxLength": 45
           },
-          "sports_facilities": {
+          "chatUsers": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "name"
+                "inviteDate"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "street": {
+                "inviteDate": {
                   "type": "string"
                 },
-                "name": {
+                "startDate": {
                   "type": "string"
                 },
-                "number": {
+                "stopDate": {
                   "type": "string"
                 },
-                "sportsFacilityPhotos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "mUser": {
+                  "type": "string"
                 },
-                "sport_types": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "chat": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -631,54 +565,26 @@
               }
             }
           },
-          "sport_type": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "sports_facilities": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewUser-searching-for-game": {
+      "NewChat": {
+        "required": [
+          "name"
+        ],
         "properties": {
-          "m_user": {
-            "type": "string"
+          "name": {
+            "type": "string",
+            "maxLength": 45
           },
-          "sports_facilities": {
+          "chatUsers": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "sport_type": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -694,5 +600,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Chat"
+    }
+  ]
 }

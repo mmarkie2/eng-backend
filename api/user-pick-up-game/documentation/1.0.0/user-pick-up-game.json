@@ -538,9 +538,7 @@
           },
           "m_user": {
             "required": [
-              "id",
-              "Name",
-              "lastName"
+              "id"
             ],
             "properties": {
               "id": {
@@ -558,7 +556,7 @@
                   "type": "string"
                 }
               },
-              "Name": {
+              "firstName": {
                 "type": "string"
               },
               "secondName": {
@@ -572,6 +570,12 @@
               },
               "usersPermissionsUser": {
                 "type": "string"
+              },
+              "user_chats": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"
