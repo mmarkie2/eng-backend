@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/19/2021 1:17:27 AM"
+    "x-generation-date": "11/19/2021 11:07:55 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13496,7 +13496,7 @@
               "id": {
                 "type": "string"
               },
-              "organizer": {
+              "owner": {
                 "type": "string"
               },
               "sports_facility": {
@@ -13723,7 +13723,7 @@
           "id": {
             "type": "string"
           },
-          "organizer": {
+          "owner": {
             "required": [
               "id"
             ],
@@ -13906,7 +13906,7 @@
           "end_date"
         ],
         "properties": {
-          "organizer": {
+          "owner": {
             "type": "string"
           },
           "sports_facility": {

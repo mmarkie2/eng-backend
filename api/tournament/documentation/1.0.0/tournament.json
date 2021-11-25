@@ -525,7 +525,7 @@
           "id": {
             "type": "string"
           },
-          "organizer": {
+          "owner": {
             "required": [
               "id"
             ],
@@ -708,7 +708,7 @@
           "end_date"
         ],
         "properties": {
-          "organizer": {
+          "owner": {
             "type": "string"
           },
           "sports_facility": {

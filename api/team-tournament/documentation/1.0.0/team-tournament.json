@@ -584,7 +584,7 @@
               "id": {
                 "type": "string"
               },
-              "organizer": {
+              "owner": {
                 "type": "string"
               },
               "sports_facility": {

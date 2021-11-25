@@ -19,8 +19,8 @@
       "required": true
     },
     "tournament": {
-      "model": "tournament",
-      "via": "team_tournaments"
+      "via": "team_tournaments",
+      "model": "tournament"
     },
     "participates": {
       "type": "boolean",

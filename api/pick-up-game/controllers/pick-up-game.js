@@ -158,7 +158,7 @@ module.exports = {
 
 
   async create(ctx) {
-    console.log( ctx.state.user.id)
+
     let entity;
     if (ctx.is('multipart')) {
       const { data, files } = parseMultipartData(ctx);
@@ -171,6 +171,17 @@ module.exports = {
     return sanitizeEntity(entity, { model: strapi.models["pick-up-game"] });
   },
   async update(ctx) {
+
+    const [result] = await strapi.services["pick-up-game"].find({
+      id: ctx.params.id,
+      'owner.id': ctx.state.user.id,
+    })
+
+    if (!result) {
+      return ctx.unauthorized(`You can't update this entry`);
+    }
+
+
     const { id } = ctx.params;
 
     let entity;
@@ -187,7 +198,11 @@ module.exports = {
   },
   async delete(ctx) {
 
-
+    const unauthorizedCheck = strapi.services['auth-utility'].unauthorizedCheck("pick-up-game",ctx);
+    if(unauthorizedCheck )
+    {
+      return  unauthorizedCheck;
+    }
     const [result] = await strapi.services["pick-up-game"].find({
       id: ctx.params.id,
       'owner.id': ctx.state.user.id,
