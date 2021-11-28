@@ -29,13 +29,13 @@
     },
     "start_date": {
       "type": "datetime",
-      "unique": true,
+
       "required": true
     },
     "end_date": {
       "type": "datetime",
-      "required": true,
-      "unique": true
+      "required": true
+
     },
     "team_tournaments": {
       "via": "tournament",
