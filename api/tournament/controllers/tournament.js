@@ -14,17 +14,17 @@ module.exports = {
     let entity;
     if (ctx.is('multipart')) {
       const { data, files } = parseMultipartData(ctx);
-      entity = await strapi.services["pick-up-game"].create(data, { files });
+      entity = await strapi.services["tournament"].create(data, { files });
     } else {
       let requestBody=ctx.request.body;
       requestBody.owner={"id":ctx.state.user.id};
-      entity = await strapi.services["pick-up-game"].create(requestBody);
+      entity = await strapi.services["tournament"].create(requestBody);
     }
-    return sanitizeEntity(entity, { model: strapi.models["pick-up-game"] });
+    return sanitizeEntity(entity, { model: strapi.models["tournament"] });
   },
   async update(ctx) {
 
-    const [result] = await strapi.services["pick-up-game"].find({
+    const [result] = await strapi.services["tournament"].find({
       id: ctx.params.id,
       'owner.id': ctx.state.user.id,
     })
@@ -39,19 +39,19 @@ module.exports = {
     let entity;
     if (ctx.is('multipart')) {
       const { data, files } = parseMultipartData(ctx);
-      entity = await strapi.services["pick-up-game"].update({ id }, data, {
+      entity = await strapi.services["tournament"].update({ id }, data, {
         files,
       });
     } else {
-      entity = await strapi.services["pick-up-game"].update({ id }, ctx.request.body);
+      entity = await strapi.services["tournament"].update({ id }, ctx.request.body);
     }
 
-    return sanitizeEntity(entity, { model: strapi.models["pick-up-game"] });
+    return sanitizeEntity(entity, { model: strapi.models["tournament"] });
   },
   async delete(ctx) {
 
 
-    const [result] = await strapi.services["pick-up-game"].find({
+    const [result] = await strapi.services["tournament"].find({
       id: ctx.params.id,
       'owner.id': ctx.state.user.id,
     })
@@ -63,8 +63,8 @@ module.exports = {
 
     const { id } = ctx.params;
 
-    const entity = await strapi.services["pick-up-game"].delete({ id });
-    return sanitizeEntity(entity, { model: strapi.models["pick-up-game"] });
+    const entity = await strapi.services["tournament"].delete({ id });
+    return sanitizeEntity(entity, { model: strapi.models["tournament"] });
   },
 
   };
