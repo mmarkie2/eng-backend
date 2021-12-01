@@ -615,12 +615,6 @@
               "usersPermissionsUser": {
                 "type": "string"
               },
-              "user_chats": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "published_at": {
                 "type": "string"
               },

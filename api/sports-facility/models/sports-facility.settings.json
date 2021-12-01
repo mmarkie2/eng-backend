@@ -18,6 +18,7 @@
     "name": {
       "type": "string",
       "required": true,
+      "unique": true,
       "maxLength": 45
     },
     "number": {

@@ -670,44 +670,6 @@
               }
             }
           },
-          "user_chats": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "inviteDate"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "inviteDate": {
-                  "type": "string"
-                },
-                "startDate": {
-                  "type": "string"
-                },
-                "stopDate": {
-                  "type": "string"
-                },
-                "mUser": {
-                  "type": "string"
-                },
-                "chat": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -747,12 +709,6 @@
           },
           "usersPermissionsUser": {
             "type": "string"
-          },
-          "user_chats": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "published_at": {
             "type": "string",

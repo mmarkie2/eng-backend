@@ -44,10 +44,6 @@
     "usersPermissionsUser": {
       "plugin": "users-permissions",
       "model": "user"
-    },
-    "user_chats": {
-      "via": "mUser",
-      "collection": "user-chat"
     }
   }
 }

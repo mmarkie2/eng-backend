@@ -198,7 +198,7 @@ module.exports = {
   },
   async delete(ctx) {
 
-    const unauthorizedCheck = strapi.services['auth-utility'].unauthorizedCheck("pick-up-game",ctx);
+    const unauthorizedCheck = strapi.services.utility.unauthorizedCheck("pick-up-game",ctx);
     if(unauthorizedCheck )
     {
       return  unauthorizedCheck;
