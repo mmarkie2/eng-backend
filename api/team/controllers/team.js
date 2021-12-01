@@ -18,7 +18,11 @@ module.exports = {
     }
 if(entity)
 {
-
+  strapi.services["user-team"].create({"team":entity,
+    mUser:{"id":ctx.state.user.id},
+    "inviteDate" : new Date().getTime(),
+    "startDate" : new Date().getTime(),
+  })
 }
 
     return sanitizeEntity(entity, { model: strapi.models[apiName] });
