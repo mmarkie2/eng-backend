@@ -15,6 +15,7 @@
     "name": {
       "type": "string",
       "unique": true,
+      "required": true,
       "maxLength": 20
     },
     "sports_facility": {

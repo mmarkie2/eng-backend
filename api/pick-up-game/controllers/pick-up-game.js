@@ -198,19 +198,13 @@ module.exports = {
   },
   async delete(ctx) {
 
-    const unauthorizedCheck = strapi.services.utility.unauthorizedCheck("pick-up-game",ctx);
-    if(unauthorizedCheck )
+    const unauthorizedCheck =await strapi.services.utility.unauthorizedCheck("pick-up-game",ctx);
+    if(unauthorizedCheck!=null )
     {
+
       return  unauthorizedCheck;
     }
-    const [result] = await strapi.services["pick-up-game"].find({
-      id: ctx.params.id,
-      'owner.id': ctx.state.user.id,
-    })
 
-    if (!result) {
-      return ctx.unauthorized(`You can't update this entry`);
-    }
 
 
     const { id } = ctx.params;

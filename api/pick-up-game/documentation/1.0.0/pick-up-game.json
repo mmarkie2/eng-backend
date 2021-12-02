@@ -529,7 +529,8 @@
     "schemas": {
       "Pick-up-game": {
         "required": [
-          "id"
+          "id",
+          "name"
         ],
         "properties": {
           "id": {
@@ -697,6 +698,9 @@
         }
       },
       "NewPick-up-game": {
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string",

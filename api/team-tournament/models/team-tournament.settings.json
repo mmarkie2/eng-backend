@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "team_tournaments",
   "info": {
-    "name": "TeamTournament"
+    "name": "TeamTournament",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -24,7 +25,7 @@
     },
     "participates": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "required": true
     }
   }

@@ -584,7 +584,8 @@
           },
           "pick_up_game": {
             "required": [
-              "id"
+              "id",
+              "name"
             ],
             "properties": {
               "id": {
