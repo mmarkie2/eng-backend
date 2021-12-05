@@ -5,9 +5,44 @@
  * to customize this controller
  */
 const {sanitizeEntity} = require('strapi-utils');
+const api="tournament"
 module.exports = {
 
 
+  async findOne(ctx) {
+    const { id } = ctx.params;
+
+    const result = await strapi.services["team-tournament"].find({
+      "tournament.id": id
+
+    })
+    let entity = await strapi.services[api].findOne({ id });
+console.log(entity.start_date)
+
+    if(entity.matches.length>0 && new Date().getTime()>entity.start_date)
+
+    {
+      for (let i=0;i<result.length;i++)
+      {
+        for (let j=i+1;j<result.length;j++)
+        {
+
+          await strapi.services["match"].create({
+            "date":  new Date( new Date().getTime() + 60*60000).getTime(),
+
+            "teamTournament1": result[i],
+            "teamTournament2": result[j],
+"tournament":{ "id":id }
+          });
+
+
+        }
+
+      }
+    }
+    entity = await strapi.services[api].findOne({ id });
+    return sanitizeEntity(entity, { model: strapi.models[api] });
+  },
 
   async create(ctx) {
     console.log( ctx.state.user.id)

@@ -27,7 +27,11 @@ module.exports = {
       const { data, files } = parseMultipartData(ctx);
       entity = await strapi.services[apiName].create(data, { files });
     } else {
-      entity = await   strapi.services[apiName].create(ctx.request.body)
+      entity = await   strapi.services[apiName].create({"team": ctx.request.body.team,
+        tournament:ctx.request.body.tournament,
+        "inviteDate" : new Date().getTime()
+
+      })
     }
 
 

@@ -38,6 +38,10 @@
     "team_tournaments": {
       "via": "tournament",
       "collection": "team-tournament"
+    },
+    "matches": {
+      "via": "tournament",
+      "collection": "match"
     }
   }
 }

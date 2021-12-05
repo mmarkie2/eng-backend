@@ -13,11 +13,11 @@
   "pluginOptions": {},
   "attributes": {
     "team": {
-      "model": "team"
+      "model": "team",
+      "via": "teamTournaments"
     },
     "invite_date": {
-      "type": "datetime",
-      "required": true
+      "type": "datetime"
     },
     "tournament": {
       "via": "team_tournaments",

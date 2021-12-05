@@ -24,6 +24,10 @@
     "team_users": {
       "via": "team",
       "collection": "user-team"
+    },
+    "teamTournaments": {
+      "via": "team",
+      "collection": "team-tournament"
     }
   }
 }

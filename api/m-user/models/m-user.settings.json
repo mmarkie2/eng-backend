@@ -44,6 +44,10 @@
     "usersPermissionsUser": {
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "userPickUpGames": {
+      "via": "m_user",
+      "collection": "user-pick-up-game"
     }
   }
 }

@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "m_user": {
-      "model": "m-user"
+      "model": "m-user",
+      "via": "userPickUpGames"
     },
     "pick_up_game": {
       "model": "pick-up-game",

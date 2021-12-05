@@ -560,6 +560,12 @@
               "usersPermissionsUser": {
                 "type": "string"
               },
+              "userPickUpGames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -658,7 +664,6 @@
             "items": {
               "required": [
                 "id",
-                "invite_date",
                 "participates"
               ],
               "properties": {
@@ -676,6 +681,44 @@
                 },
                 "participates": {
                   "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "matches": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "date"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "matchResult": {
+                  "type": "string"
+                },
+                "teamTournament1": {
+                  "type": "string"
+                },
+                "teamTournament2": {
+                  "type": "string"
+                },
+                "tournament": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -724,6 +767,12 @@
             "format": "date-time"
           },
           "team_tournaments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "matches": {
             "type": "array",
             "items": {
               "type": "string"

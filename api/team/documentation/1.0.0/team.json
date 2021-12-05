@@ -562,6 +562,12 @@
               "usersPermissionsUser": {
                 "type": "string"
               },
+              "userPickUpGames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -611,6 +617,41 @@
               }
             }
           },
+          "teamTournaments": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "participates"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "team": {
+                  "type": "string"
+                },
+                "invite_date": {
+                  "type": "string"
+                },
+                "tournament": {
+                  "type": "string"
+                },
+                "participates": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -630,6 +671,12 @@
             "type": "string"
           },
           "team_users": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "teamTournaments": {
             "type": "array",
             "items": {
               "type": "string"

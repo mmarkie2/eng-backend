@@ -558,6 +558,12 @@
                     "type": "string"
                   }
                 },
+                "teamTournaments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -670,6 +676,41 @@
               }
             }
           },
+          "userPickUpGames": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "inviteDate"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "m_user": {
+                  "type": "string"
+                },
+                "pick_up_game": {
+                  "type": "string"
+                },
+                "inviteDate": {
+                  "type": "string"
+                },
+                "participates": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -709,6 +750,12 @@
           },
           "usersPermissionsUser": {
             "type": "string"
+          },
+          "userPickUpGames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
