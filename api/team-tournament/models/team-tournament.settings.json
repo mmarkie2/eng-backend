@@ -27,8 +27,7 @@
     },
     "participates": {
       "type": "boolean",
-      "default": true,
-      "required": true
+      "default": true
     }
   }
 }

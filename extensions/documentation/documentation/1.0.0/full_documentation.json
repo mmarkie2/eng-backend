@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/07/2021 9:34:47 PM"
+    "x-generation-date": "12/08/2021 10:08:43 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -11001,8 +11001,7 @@
             "required": [
               "id",
               "team",
-              "tournament",
-              "participates"
+              "tournament"
             ],
             "properties": {
               "id": {
@@ -11035,8 +11034,7 @@
             "required": [
               "id",
               "team",
-              "tournament",
-              "participates"
+              "tournament"
             ],
             "properties": {
               "id": {
@@ -11801,8 +11799,7 @@
         "required": [
           "id",
           "team",
-          "tournament",
-          "participates"
+          "tournament"
         ],
         "properties": {
           "id": {
@@ -11917,8 +11914,7 @@
       "NewTeam-tournament": {
         "required": [
           "team",
-          "tournament",
-          "participates"
+          "tournament"
         ],
         "properties": {
           "team": {
@@ -12056,8 +12052,7 @@
               "required": [
                 "id",
                 "team",
-                "tournament",
-                "participates"
+                "tournament"
               ],
               "properties": {
                 "id": {
@@ -12282,8 +12277,7 @@
               "required": [
                 "id",
                 "team",
-                "tournament",
-                "participates"
+                "tournament"
               ],
               "properties": {
                 "id": {

@@ -13,13 +13,25 @@ module.exports = {
 
     // if required fields empty return error code
 console.log(ctx.request.body.tournament)
-    console.log(ctx.request.body.tournament===undefined )
+    console.log(ctx.request.body.team )
     if (ctx.request.body.tournament===undefined || ctx.request.body.team===undefined
       || ctx.request.body.tournament.id==='' || ctx.request.body.team.id==='') {
 
       ctx.send({
         message: 'required violation'
       }, 400);
+      return;
+    }
+
+    // if its after start date  return error code
+let tournament= await strapi.services["tournament"].findOne({"id":ctx.request.body.tournament.id});
+    console.log(new Date(tournament.start_date))
+    console.log(new Date)
+    if ((new Date(tournament.start_date)<new Date())) {
+
+      ctx.send({
+        message: 'date violation'
+      }, 423);
       return;
     }
 // if relationship exists  return error code

@@ -554,8 +554,7 @@
             "required": [
               "id",
               "team",
-              "tournament",
-              "participates"
+              "tournament"
             ],
             "properties": {
               "id": {
@@ -588,8 +587,7 @@
             "required": [
               "id",
               "team",
-              "tournament",
-              "participates"
+              "tournament"
             ],
             "properties": {
               "id": {

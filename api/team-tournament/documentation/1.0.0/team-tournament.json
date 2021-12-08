@@ -531,8 +531,7 @@
         "required": [
           "id",
           "team",
-          "tournament",
-          "participates"
+          "tournament"
         ],
         "properties": {
           "id": {
@@ -647,8 +646,7 @@
       "NewTeam-tournament": {
         "required": [
           "team",
-          "tournament",
-          "participates"
+          "tournament"
         ],
         "properties": {
           "team": {
