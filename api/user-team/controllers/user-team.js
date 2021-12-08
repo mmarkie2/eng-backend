@@ -1,36 +1,44 @@
 'use strict';
 
-/**
- * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
- * to customize this controller
- */
 
-const apiName="user-team"
-const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
+const apiName = "user-team"
+const {parseMultipartData, sanitizeEntity} = require('strapi-utils');
 module.exports = {
   async create(ctx) {
+    // if required fields empty return error code
 
-   let foundEntities= await strapi.services[apiName].find({"mUser":ctx.request.body.mUser,
-   "team":ctx.request.body.team});
-   if (foundEntities.length>0)
-   {
-     return {
-       status: '422',
-       message: 'unique violation'
-     }
-   }
-console.log(foundEntities)
-    let entity;
+    if (ctx.request.body.mUser===undefined || ctx.request.body.team===undefined) {
 
-    if (ctx.is('multipart')) {
-      const { data, files } = parseMultipartData(ctx);
-      entity = await strapi.services[apiName].create(data, { files });
-    } else {
-      entity = await   strapi.services[apiName].create(ctx.request.body)
+      ctx.send({
+        message: 'required violation'
+      }, 400);
+      return;
     }
+    console.log(ctx.request.body.mUser)
+    console.log(ctx.request.body.team)
+
+// if mUser is already in relationship with team return error code
+    let foundEntities = await strapi.services[apiName].find({
+      "mUser": ctx.request.body.mUser,
+      "team": ctx.request.body.team
+    });
+
+    if (foundEntities.length > 0) {
 
 
-    return sanitizeEntity(entity, { model: strapi.models[apiName] });
+      ctx.send({
+        message: 'unique violation'
+      }, 422);
+      return;
+    }
+    //else create relationship entity and return it
+    let entity;
+    if (ctx.is('multipart')) {
+      const {data, files} = parseMultipartData(ctx);
+      entity = await strapi.services[apiName].create(data, {files});
+    } else {
+      entity = await strapi.services[apiName].create(ctx.request.body)
+    }
+    return sanitizeEntity(entity, {model: strapi.models[apiName]});
   },
-
 };

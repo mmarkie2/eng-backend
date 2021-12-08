@@ -13,6 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "team": {
+      "required": true,
       "model": "team",
       "via": "teamTournaments"
     },
@@ -20,6 +21,7 @@
       "type": "datetime"
     },
     "tournament": {
+      "required": true,
       "via": "team_tournaments",
       "model": "tournament"
     },

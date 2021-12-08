@@ -530,6 +530,8 @@
       "Team-tournament": {
         "required": [
           "id",
+          "team",
+          "tournament",
           "participates"
         ],
         "properties": {
@@ -581,6 +583,8 @@
           "tournament": {
             "required": [
               "id",
+              "sports_facility",
+              "sport_type",
               "name",
               "start_date",
               "end_date"
@@ -642,6 +646,8 @@
       },
       "NewTeam-tournament": {
         "required": [
+          "team",
+          "tournament",
           "participates"
         ],
         "properties": {

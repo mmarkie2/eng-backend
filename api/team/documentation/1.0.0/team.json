@@ -622,6 +622,8 @@
             "items": {
               "required": [
                 "id",
+                "team",
+                "tournament",
                 "participates"
               ],
               "properties": {

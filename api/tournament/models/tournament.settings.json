@@ -16,9 +16,11 @@
       "model": "m-user"
     },
     "sports_facility": {
+      "required": true,
       "model": "sports-facility"
     },
     "sport_type": {
+      "required": true,
       "model": "sport-type"
     },
     "name": {

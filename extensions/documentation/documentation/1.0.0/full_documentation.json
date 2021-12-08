@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/05/2021 5:46:34 PM"
+    "x-generation-date": "12/07/2021 9:34:47 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -11000,6 +11000,8 @@
           "teamTournament1": {
             "required": [
               "id",
+              "team",
+              "tournament",
               "participates"
             ],
             "properties": {
@@ -11032,6 +11034,8 @@
           "teamTournament2": {
             "required": [
               "id",
+              "team",
+              "tournament",
               "participates"
             ],
             "properties": {
@@ -11064,6 +11068,8 @@
           "tournament": {
             "required": [
               "id",
+              "sports_facility",
+              "sport_type",
               "name",
               "start_date",
               "end_date"
@@ -11794,6 +11800,8 @@
       "Team-tournament": {
         "required": [
           "id",
+          "team",
+          "tournament",
           "participates"
         ],
         "properties": {
@@ -11845,6 +11853,8 @@
           "tournament": {
             "required": [
               "id",
+              "sports_facility",
+              "sport_type",
               "name",
               "start_date",
               "end_date"
@@ -11906,6 +11916,8 @@
       },
       "NewTeam-tournament": {
         "required": [
+          "team",
+          "tournament",
           "participates"
         ],
         "properties": {
@@ -12043,6 +12055,8 @@
             "items": {
               "required": [
                 "id",
+                "team",
+                "tournament",
                 "participates"
               ],
               "properties": {
@@ -12118,6 +12132,8 @@
       "Tournament": {
         "required": [
           "id",
+          "sports_facility",
+          "sport_type",
           "name",
           "start_date",
           "end_date"
@@ -12265,6 +12281,8 @@
             "items": {
               "required": [
                 "id",
+                "team",
+                "tournament",
                 "participates"
               ],
               "properties": {
@@ -12341,6 +12359,8 @@
       },
       "NewTournament": {
         "required": [
+          "sports_facility",
+          "sport_type",
           "name",
           "start_date",
           "end_date"

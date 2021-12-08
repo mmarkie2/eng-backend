@@ -17,9 +17,9 @@ module.exports = {
 
     })
     let entity = await strapi.services[api].findOne({ id });
-console.log(entity.start_date)
-
-    if(entity.matches.length>0 && new Date().getTime()>entity.start_date)
+console.log(new Date(entity.start_date))
+    console.log(entity.matches.length)
+    if(entity.matches.length===0 && new Date()>new Date(entity.start_date))
 
     {
       for (let i=0;i<result.length;i++)
@@ -45,7 +45,15 @@ console.log(entity.start_date)
   },
 
   async create(ctx) {
-    console.log( ctx.state.user.id)
+    // date validation
+    if (!(new Date(ctx.request.body.start_date)>new Date()) ||
+      !(new Date(ctx.request.body.end_date)>new Date(ctx.request.body.start_date)) )
+    {
+      ctx.send({
+        message: 'date violation'
+      }, 423);
+
+    }
     let entity;
     if (ctx.is('multipart')) {
       const { data, files } = parseMultipartData(ctx);

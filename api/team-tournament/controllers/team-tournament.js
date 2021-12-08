@@ -11,16 +11,34 @@ const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 module.exports = {
   async create(ctx) {
 
-    let foundEntities= await strapi.services[apiName].find({"tournament":ctx.request.body.tournament,
-      "team":ctx.request.body.team});
+    // if required fields empty return error code
+console.log(ctx.request.body.tournament)
+    console.log(ctx.request.body.tournament===undefined )
+    if (ctx.request.body.tournament===undefined || ctx.request.body.team===undefined
+      || ctx.request.body.tournament.id==='' || ctx.request.body.team.id==='') {
+
+      ctx.send({
+        message: 'required violation'
+      }, 400);
+      return;
+    }
+// if relationship exists  return error code
+
+    console.log(ctx.request.body.tournament)
+    console.log(ctx.request.body.team)
+
+    let foundEntities= await strapi.services[apiName].find({"tournament":ctx.request.body.tournament.id,
+      "team":ctx.request.body.team.id});
+
+    console.log(foundEntities)
     if (foundEntities.length>0)
     {
-      return {
-        status: '422',
+      ctx.send({
         message: 'unique violation'
-      }
+      }, 422);
+      return;
     }
-    console.log(foundEntities)
+
     let entity;
 
     if (ctx.is('multipart')) {

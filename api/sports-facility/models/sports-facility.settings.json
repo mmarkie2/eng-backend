@@ -36,6 +36,7 @@
       "pluginOptions": {}
     },
     "sport_types": {
+
       "collection": "sport-type",
       "via": "sports_facilities",
       "dominant": true
