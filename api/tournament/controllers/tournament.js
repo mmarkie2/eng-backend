@@ -19,7 +19,7 @@ module.exports = {
     let entity = await strapi.services[api].findOne({ id });
 console.log(new Date(entity.start_date))
     console.log(entity.matches.length)
-    if(entity.matches.length===0 && new Date()>new Date(entity.start_date))
+    if(entity.matches.length===0 && (new Date()>new Date(entity.start_date)))
 
     {
       for (let i=0;i<result.length;i++)

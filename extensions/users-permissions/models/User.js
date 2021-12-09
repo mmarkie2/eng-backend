@@ -13,9 +13,6 @@ module.exports = {
 
 
      let entity =  strapi.services['m-user'].create({
-        "Name": "name",
-        "lastName": "est occaec",
-
 
 
        "usersPermissionsUser":user
